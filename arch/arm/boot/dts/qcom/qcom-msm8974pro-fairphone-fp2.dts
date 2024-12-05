@@ -323,7 +323,6 @@
 		pm8941_l1: l1 {
 			regulator-min-microvolt = <1225000>;
 			regulator-max-microvolt = <1225000>;
-			regulator-always-on;
 			regulator-boot-on;
 		};
 
@@ -360,8 +359,8 @@
 		};
 
 		pm8941_l8: l8 {
-			regulator-min-microvolt = <1800000>;
-			regulator-max-microvolt = <1800000>;
+			regulator-off-in-suspend;
+    			regulator-active-discharge = <0>;
 		};
 
 		pm8941_l9: l9 {
@@ -382,7 +381,6 @@
 		pm8941_l12: l12 {
 			regulator-min-microvolt = <1800000>;
 			regulator-max-microvolt = <1800000>;
-			regulator-always-on;
 			regulator-boot-on;
 		};
 
