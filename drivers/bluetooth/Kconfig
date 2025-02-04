@@ -28,7 +28,7 @@ config BT_HCIBTUSB
 	depends on USB
 	select BT_INTEL
 	help
-	  Bluetooth HCI USB driver.
+	  Bluetooth HCI USB driver. test
 	  This driver is required if you want to use Bluetooth devices with
 	  USB interface.
 
