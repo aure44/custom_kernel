@@ -232,7 +232,6 @@
 	status = "okay";
 
 	vddmx-supply = <&pm8841_s1>;
-	vddcx-supply = <&pm8841_s2>;
 	vddpx-supply = <&pm8941_s3>;
 
 	pinctrl-names = "default";
@@ -257,12 +256,10 @@
 
 &remoteproc_adsp {
 	status = "okay";
-	cx-supply = <&pm8841_s2>;
 };
 
 &remoteproc_mss {
 	status = "okay";
-	cx-supply = <&pm8841_s2>;
 	mss-supply = <&pm8841_s3>;
 	mx-supply = <&pm8841_s1>;
 	pll-supply = <&pm8941_l12>;
@@ -274,11 +271,6 @@
 
 		pm8841_s1: s1 {
 			regulator-min-microvolt = <675000>;
-			regulator-max-microvolt = <1050000>;
-		};
-
-		pm8841_s2: s2 {
-			regulator-min-microvolt = <500000>;
 			regulator-max-microvolt = <1050000>;
 		};
 
@@ -323,6 +315,7 @@
 		pm8941_l1: l1 {
 			regulator-min-microvolt = <1225000>;
 			regulator-max-microvolt = <1225000>;
+			regulator-always-on;
 			regulator-boot-on;
 		};
 
@@ -359,8 +352,9 @@
 		};
 
 		pm8941_l8: l8 {
-			regulator-off-in-suspend;
-    			regulator-active-discharge = <0>;
+			regulator-min-microvolt = <1800000>;
+			regulator-max-microvolt = <1800000>;
+			status = "disabled";
 		};
 
 		pm8941_l9: l9 {
@@ -381,6 +375,7 @@
 		pm8941_l12: l12 {
 			regulator-min-microvolt = <1800000>;
 			regulator-max-microvolt = <1800000>;
+			regulator-always-on;
 			regulator-boot-on;
 		};
 
